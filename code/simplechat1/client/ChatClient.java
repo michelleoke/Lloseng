@@ -85,7 +85,7 @@ public class ChatClient extends AbstractClient
 	else if message.equals("#gethost")
 		clientUI.display(" The host is " + getHost());
 	else if message.equals("#getport")
-		clientUI.display(" The host is " + getPort());
+		clientUI.display(" The port is " + getPort());
     // couldn't figure out how to implement the rest in time.
     }
   }
