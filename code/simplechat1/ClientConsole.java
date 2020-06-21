@@ -73,7 +73,7 @@ public class ClientConsole implements ChatIF
       while (true) 
       {
         message = fromConsole.readLine();
-        client.handleMessageFromClientUI(message);
+        client.handleMessageFromServerUI(message);
       }
     } 
     catch (Exception ex) 
@@ -104,19 +104,13 @@ public class ClientConsole implements ChatIF
    */
   public static void main(String[] args) 
   {
-    String host = "";
     int port = 0;  //The port number
 
-    try
-    {
-      host = args[0];
-    }
-    catch(ArrayIndexOutOfBoundsException e)
-    {
-      host = "localhost";
-    }
-    ClientConsole chat= new ClientConsole(host, DEFAULT_PORT);
-    chat.accept();  //Wait for console data
+   
+      port = Integer.parseInt(args[0]);
+  
+    ServerConsole server= new ServerConsole(host, port);
+    server.accept();  //Wait for console data
   }
 }
 //End of ConsoleChat class
