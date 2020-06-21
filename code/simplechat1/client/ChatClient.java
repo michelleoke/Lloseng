@@ -65,7 +65,7 @@ public class ChatClient extends AbstractClient
    * @param message The message from the UI.    
    */
   public void handleMessageFromClientUI(String message)
-  {
+  /*{
     try
     {
       sendToServer(message);
@@ -75,6 +75,18 @@ public class ChatClient extends AbstractClient
       clientUI.display
         ("Could not send message to server.  Terminating client.");
       quit();
+    }
+    */
+    if (message[0] ="#"){
+    	if message.equals("#quit")
+		quit();
+	else if message.equals("#logoff")
+		closeConnection();
+	else if message.equals("#gethost")
+		clientUI.display(" The host is " + getHost());
+	else if message.equals("#getport")
+		clientUI.display(" The host is " + getPort());
+    // couldn't figure out how to implement the rest in time.
     }
   }
     protected void connectionEstablished(){
