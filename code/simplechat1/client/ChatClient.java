@@ -77,6 +77,13 @@ public class ChatClient extends AbstractClient
       quit();
     }
   }
+  protected void connectionException(Exception exception) {
+  //if connection is closed, throw this exception and print "The connections lost due to server shutting down"
+	}
+  @Override
+  public void connectionClosed(){
+  //
+  }
   
   /**
    * This method terminates the client.
