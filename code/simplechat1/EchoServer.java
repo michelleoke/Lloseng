@@ -4,6 +4,7 @@
 
 import java.io.*;
 import ocsf.server.*;
+import common.*;
 /**
  * This class overrides some of the methods in the abstract 
  * superclass in order to give more functionality to the server.
@@ -17,7 +18,7 @@ import ocsf.server.*;
 public class EchoServer extends AbstractServer 
 {
   //Class variables *************************************************
-  
+  ChatIF serverUI;
   /**
    * The default port to listen on.
    */
@@ -87,8 +88,19 @@ public class EchoServer extends AbstractServer
     System.out.println("Server has disconnected from " + client + ".")
     
     }
-  
-  //Class methods ***************************************************
+  public void handleMessageFromServerUI(String message){
+  if (message[0] ="#"){
+    	if message.equals("#quit")
+		this.close();
+	else if message.equals("#stop")
+		this.stopListening();
+	else if message.equals("#close")
+		close();
+	else if message.equals("#getport")
+		clientUI.display(" The port is " + getPort());
+	else if message.equals("#start")
+		this.listen();
+   }
   
   /**
    * This method is responsible for the creation of 
