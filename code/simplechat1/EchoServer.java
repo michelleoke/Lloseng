@@ -35,6 +35,7 @@ public class EchoServer extends AbstractServer
   {
     super(port);
   }
+  
 
   
   //Instance methods ************************************************
@@ -45,6 +46,12 @@ public class EchoServer extends AbstractServer
    * @param msg The message received from the client.
    * @param client The connection from which the message originated.
    */
+   protected void clientConnected(ConnectionToClient client){
+   	System.out.println("A client has connected to the server.");
+   }
+   synchronized protected void clientDisconnected(ConnectionToClient client){
+   	System.out.println("A client has disconnected from the server");
+	}
   public void handleMessageFromClient
     (Object msg, ConnectionToClient client)
   {
